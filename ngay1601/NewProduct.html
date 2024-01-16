@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>new product</h1>
+    <form name="frm">
+        <p>
+            <label >
+                product Name
+                <input type="text" name="pname" id="pname/">
+            </label>
+            <label >
+                    quantily
+                <input type="text" name="qty" id="qty"/>
+            </label>
+
+        </p>
+        <p>
+            <label >
+                Unit Price
+                <input type="text" name="up" id="up"/>
+
+            </label>
+            <label >
+                Discount
+                <input type="text" name="dc" id="dc"/>
+            </label>
+        </p>
+        <p>
+            <button type="button" onclick="sell()">sell</button>
+            <button type="button">Cancle</button>
+        </p>
+
+    </form>
+
+
+    <table id ="tbl">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>product name</th>
+                
+                <th>quantily</th>
+                <th>Unit price</th>
+                <th>Discount</th>
+                <th>subtotal</th>
+            </tr>
+        </thead>
+    </table>
+    <script type="text/javascript">
+        var id=0;
+        function sell()
+        {
+            id++;
+            var pname= frm.pname.value;
+            var qty = frm.qty.value;
+            var price = frm.up.value;
+            var dc = frm.dc.value;
+            var sub = qty*price*(1-dc/100);
+            var row = "<tr>";
+            row += "<td>"+ id +"</td>";
+            row += "<td>"+ pname +"</td>";
+            row += "<td>"+ qty +"</td>";
+            row += "<td>"+ price +"</td>";
+            row += "<td>"+ dc +"</td>";
+            row += "<td>"+ sub +"</td>";
+            row += "</tr>";
+            document.getElementById("tbl").innerHTML +=row;
+        }
+    </script>
+</body>
+</html>
