@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.js">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script type="text/javascript">
+        for (var i = 0; i < 5; i++) {
+            for (var j = 0; j < 10; j++) {
+                // Gắn trực tiếp nội dung chữ vào id của button
+                document.write("<div class='square'><button id='button-" + i + "-" + j + "' onclick='ham(this)'>Try it</button></div>");
+            }
+            document.write("<div style='clear:both'> </div>");
+        }
+
+        function ham(button) {
+            // Lấy nội dung chữ từ id của button
+            var text = button.id.substring(8); // Loại bỏ "button-"
+            alert("Chữ của ô " + text);
+        }
+    </script>
+</body>
+</html>
